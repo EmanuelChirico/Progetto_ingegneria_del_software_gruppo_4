@@ -8,7 +8,7 @@ package it.unisa.diem.ingsoft.gruppo4.rubrica;
 
 /**
  *
- * @author Emanuel
+ * @author Gruppo IV
  */
 
 import java.util.Set;
