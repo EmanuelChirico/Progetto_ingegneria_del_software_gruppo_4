@@ -7,10 +7,10 @@ import java.util.List;
  * @brief La classe Contatto rappresenta un contatto con informazioni personali.
  * 
  * Questa classe include le seguenti informazioni:
- * - nome
- * - cognome
- * - numeri di telefono 
- * - email
+ * - Nome
+ * - Cognome
+ * - Numeri di telefono 
+ * - Email
  * 
  * @author Gruppo IV 
  */
