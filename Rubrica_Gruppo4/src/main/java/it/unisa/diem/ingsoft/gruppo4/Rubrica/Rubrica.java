@@ -1,6 +1,7 @@
 package it.unisa.diem.ingsoft.gruppo4.Rubrica;
 
 import java.util.List;
+import java.util.LinkedList;
 
 /**
  * @file Rubrica.java
@@ -22,6 +23,11 @@ public class Rubrica {
 
     private List<Contatto> contatti;
     
+    
+    public Rubrica () {
+        this.contatti = new LinkedList<>();
+    }
+    
     /**
      * @brief Il metodo aggiungiContatto() aggiunge un nuovo contatto alla lista.
      * 
@@ -34,6 +40,8 @@ public class Rubrica {
      * @see numeroDuplicato()
      */
     public void aggiungiContatto(Contatto c) {
+        
+        
     }
 
     /**
