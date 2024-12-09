@@ -9,7 +9,7 @@ package it.unisa.diem.ingsoft.gruppo4.Rubrica;
  * - ricerca di contatti
  * - interazione con l'utente tramite bottoni
  * 
- * @author Gruppo IV
+ * @author Gruppo 4
  */
 public class InterfacciaUtente {
 

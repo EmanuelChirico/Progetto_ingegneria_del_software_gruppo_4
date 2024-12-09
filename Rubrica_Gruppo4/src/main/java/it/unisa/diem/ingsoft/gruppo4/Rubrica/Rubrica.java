@@ -15,7 +15,7 @@ import java.util.List;
  * - controllo numero duplicato
  * - clona contatto
  * 
- * @author Gruppo IV 
+ * @author Gruppo 4
  */
 
 public class Rubrica {
