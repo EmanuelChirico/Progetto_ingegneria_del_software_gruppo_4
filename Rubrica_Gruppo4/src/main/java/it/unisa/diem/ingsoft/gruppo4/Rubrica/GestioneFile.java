@@ -1,6 +1,8 @@
 package it.unisa.diem.ingsoft.gruppo4.Rubrica;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -64,7 +66,24 @@ public void importaContatti(File file, ArrayList<Contatto> rubrica) {
      * @param[in] nomeFile Il file su cui bisogna esportare la rubrica.
      * 
      */
-    public void esportaContatti() {
+    public void esportaContatti(File file, ArrayList<Contatto> rubrica) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+        for (Contatto contatto : rubrica) {
+            
+            String line = String.join("|", 
+                contatto.getNome(), 
+                contatto.getCognome(), 
+                String.join(",", contatto.getNumTel()), 
+                String.join(",", contatto.getEmail())
+            );
+            writer.write(line);
+            writer.newLine();
+        }
+        System.out.println("Rubrica esportata correttamente nel file: " + file.getAbsolutePath());
+    } catch (IOException e) {
+        e.printStackTrace();
+        System.out.println("Errore durante la scrittura del file.");
+    }
     }
 
 }

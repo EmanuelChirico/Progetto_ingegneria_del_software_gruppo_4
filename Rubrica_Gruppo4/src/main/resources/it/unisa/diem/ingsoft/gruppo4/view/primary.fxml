@@ -25,7 +25,7 @@
                         <Insets right="5.0" />
                     </HBox.margin>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Esporta" />
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Esporta" onAction="#handleEsportaButton" />
                 <TextField prefHeight="25.0" prefWidth="170.0" promptText="Cerca contatto                    🔎">
                     <HBox.margin>
                         <Insets left="240.0" />
