@@ -26,7 +26,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>it.unisa.diem.ingsoft.gruppo4.App</mainClass>
+                    <mainClass>it.unisa.diem.ingsoft.gruppo4.view.App</mainClass>
                 </configuration>
                 <executions>
                     <execution>
