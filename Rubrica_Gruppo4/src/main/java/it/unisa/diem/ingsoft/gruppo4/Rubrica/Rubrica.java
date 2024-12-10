@@ -1,6 +1,9 @@
 package it.unisa.diem.ingsoft.gruppo4.Rubrica;
 
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * @file Rubrica.java
@@ -20,7 +23,26 @@ import java.util.List;
 
 public class Rubrica {
 
-    private List<Contatto> contatti;
+    private List<Contatto> contatti;  
+    private boolean conferma;
+    
+    //Comparatore come attributo di classe
+    private Comparator<Contatto> comparatore = new Comparator<Contatto>() {
+        @Override
+        /* Implementazione comparatore prima per cognome e poi per nome */
+        public int compare(Contatto c1, Contatto c2) {
+            int cmp = c1.getCognome().compareTo(c2.getCognome());
+            if (cmp == 0) {
+                cmp = c1.getNome().compareTo(c2.getNome());
+            }
+            return cmp;
+        }
+    };
+    
+    public Rubrica () {
+        this.contatti = new ArrayList<>();
+        this.conferma = false; 
+    }
     
     /**
      * @brief Il metodo aggiungiContatto() aggiunge un nuovo contatto alla lista.
@@ -33,7 +55,17 @@ public class Rubrica {
      * @see confermaModifiche()
      * @see numeroDuplicato()
      */
-    public void aggiungiContatto(Contatto c) {
+    public boolean aggiungiContatto(Contatto c) {
+        if (!confermaModifiche()) {
+            return false;
+        }
+        if (!numeroDuplicato(c.getNumTel())) {
+            contatti.add(c);    
+            Collections.sort(contatti, comparatore);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -46,7 +78,13 @@ public class Rubrica {
      * @param[in] c Contatto da rimuovere.
      * @see confermaModifiche()
      */
-    public void rimuoviContatto(Contatto c) {
+    public boolean rimuoviContatto(Contatto c) {
+        if (!confermaModifiche()) {
+            return false;
+        }
+        contatti.remove(c);
+        Collections.sort(contatti, comparatore);
+        return true;     
     }
 
     /**
@@ -62,7 +100,16 @@ public class Rubrica {
      * @see confermaModifiche()
      * @see clona()
      */
-    public void modificaContatto() {
+    public boolean modificaContatto(Contatto contattoPrec, Contatto contattoMod) {
+        if (!confermaModifiche()) {
+            return false;
+        }
+        contattoPrec.setNome(contattoMod.getNome());
+        contattoPrec.setCognome(contattoMod.getCognome());
+        contattoPrec.setNumTel(contattoMod.getNumTel());
+        contattoPrec.setEmail(contattoMod.getEmail());
+        Collections.sort(contatti, comparatore);
+        return true;
     }
 
     /**
@@ -74,16 +121,33 @@ public class Rubrica {
      * 
      * @param[in] str Sottostringa su cui effettuare la ricerca per cognome e nome.
      */
-    public void ricercaContatto(String str) {
+    public List<Contatto> ricercaContatto(String str) {
+        List<Contatto> corrispondenze = new ArrayList<>();
+        
+        for (Contatto contatto : contatti) {
+            if (contatto.getCognome().toLowerCase().startsWith(str.toLowerCase()) || 
+                contatto.getNome().toLowerCase().startsWith(str.toLowerCase())) {
+                if (!corrispondenze.contains(contatto))
+                    corrispondenze.add(contatto);
+            }
+        }
+        return corrispondenze;
     }
     
      /**
      * @brief Il metodo confermaModifiche() conferma o meno le modifiche apportate sulla lista di contatti.
      * 
      * @pre Sono state effettuate delle modifiche sulla lista.
-     * @post Le modifiche apportate vengono confermate o annullate.
+     * @post Il metodo che ha chiamato confermaModifiche() conferma o meno le operazioni effettuate.
+     * 
+     * @return conferma True se il bottone "Conferma" viene cliccato, false altrimenti.
      */
-    public void confermaModifiche(){
+    public boolean confermaModifiche(){
+        return this.conferma;
+    }
+    
+    public void setConferma(boolean statoConferma) {
+        this.conferma = statoConferma;
     }
     
     /**
@@ -96,20 +160,13 @@ public class Rubrica {
      * @return True se almeno uno dei numeri è duplicato, false altrimenti.
      */
     public boolean numeroDuplicato(List<String> num) {
-        return true;
+        for (String numero : num) {
+            for (Contatto contatto : contatti) {
+                if (contatto.getNumTel().equals(numero)) 
+                    return true;
+            }
+        }
+        return false;   //Solo se non c'è alcuna occorrenza in tutta la rubrica
     }
     
-    /**
-     * @brief Il metodo clona() clona il contatto passato come parametro.
-     * 
-     * @pre Il contatto passato come parametro è valido.
-     * @post Restituisce un clone del contatto passato come parametro.
-     * @invariant Il contatto passato come parametro non viene modificato.
-     * 
-     * @param[in] c Contatto da clonare.
-     * @return Il clone del contatto.
-     */
-    public Contatto clona(Contatto c){
-        return null;
-    }
 }
