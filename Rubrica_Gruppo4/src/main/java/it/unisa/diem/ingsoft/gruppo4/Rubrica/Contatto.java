@@ -21,6 +21,10 @@ public class Contatto {
     private List<String> numTel;
     private List<String> email;
 
+    Contatto(String nome, String cognome, String numero, String email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * @brief Il metodo getNome() restituisce il nome del contatto.
      * 
