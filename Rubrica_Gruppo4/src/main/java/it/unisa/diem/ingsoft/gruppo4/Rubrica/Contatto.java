@@ -1,9 +1,11 @@
 package it.unisa.diem.ingsoft.gruppo4.Rubrica;
 
-import java.util.List;
-import java.util.ArrayList;
-import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.ListProperty;
+import javafx.collections.FXCollections;
+import java.util.ArrayList;
 
 /**
  * @file Contatto.java
@@ -24,10 +26,15 @@ public class Contatto {
     private ListProperty<String> numTel;
     private ListProperty<String> email;
     private final int MAX_CONTACTS = 3;  // Limite massimo di numeri e email
-
-        public Contatto() {
-            
-        }
+    /**
+     * @brief Costruttore della classe Contatto
+     */
+    public Contatto() {
+        this.nome = new SimpleStringProperty("");
+        this.cognome = new SimpleStringProperty("");
+        this.numTel = new SimpleListProperty<>(FXCollections.observableArrayList());
+        this.email = new SimpleListProperty<>(FXCollections.observableArrayList());
+    }
     
     /**
      * @brief Il metodo getNome() restituisce il nome del contatto.
@@ -38,7 +45,7 @@ public class Contatto {
      * @return Il nome del contatto.
      */
     public String getNome() {
-       
+        return nome.get();
     }
 
     /**
@@ -50,7 +57,7 @@ public class Contatto {
      * @return Il cognome del contatto.
      */
     public String getCognome() {
-        
+        return cognome.get();
     }
 
     /**
@@ -62,7 +69,7 @@ public class Contatto {
      * @return La lista dei numeri di telefono.
      */
     public ArrayList<String> getNumTel() {
-        
+        return new ArrayList<>(numTel.get());
     }
 
     /**
@@ -74,7 +81,7 @@ public class Contatto {
      * @return La lista delle email.
      */
     public ArrayList<String> getEmail() {
-        
+        return new ArrayList<>(email.get());
     }
 
     /**
@@ -83,10 +90,14 @@ public class Contatto {
      * @pre Il valore passato come parametro è valido.
      * @post L'attributo deve essere aggiornato con il parametro passato.
      * 
-     * @param[in] nome il nome del contatto.
+     * @param nome Il nuovo valore del nome del contatto.
      */
     public void setNome(String nome) {
-        
+        if (nome == null || nome.isEmpty()) {
+            this.nome.set("");  // Se il parametro è null o vuoto, assegna una stringa vuota
+        } else {
+            this.nome.set(nome);  // Altrimenti, assegna il valore passato
+        }
     }
 
     /**
@@ -95,10 +106,14 @@ public class Contatto {
      * @pre Il valore passato come parametro è valido.
      * @post L'attributo deve essere aggiornato con il parametro passato.
      * 
-     * @param[in] cognome Il cognome del contatto.
+     * @param cognome Il nuovo valore del cognome del contatto.
      */
     public void setCognome(String cognome) {
-        
+        if (cognome == null || cognome.isEmpty()) {
+            this.cognome.set("");  // Se il parametro è null o vuoto, assegna una stringa vuota
+        } else {
+            this.cognome.set(cognome);  // Altrimenti, assegna il valore passato
+        }
     }
 
     /**
@@ -107,15 +122,21 @@ public class Contatto {
      * @pre Il valore passato come parametro è valido.
      * @post L'attributo deve essere aggiornato con il parametro passato.
      * 
-     * @param[in] numTel La lista dei numeri di telefono.
+     * @param numTel La lista dei numeri di telefono.
      */
     public void setNumTel(ArrayList<String> numTel) {
-      
-    }
-    
-       // Metodo per aggiungere un singolo numero di telefono (con limite massimo di 3)
-    public void addTelefono(String telefono) {
-        
+        if (numTel != null) {
+            ArrayList<String> listaSenzaDuplicati = new ArrayList<>();
+            for (String numero : numTel) {
+                if (!listaSenzaDuplicati.contains(numero)) {
+                    listaSenzaDuplicati.add(numero);
+                }
+            }
+            // Mantieni solo i primi 3 numeri
+            this.numTel.set(FXCollections.observableArrayList(listaSenzaDuplicati.subList(0, Math.min(listaSenzaDuplicati.size(), MAX_CONTACTS))));
+        } else {
+            this.numTel.set(FXCollections.observableArrayList());
+        }
     }
 
     /**
@@ -124,15 +145,15 @@ public class Contatto {
      * @pre Il valore passato come parametro è valido.
      * @post L'attributo deve essere aggiornato con il parametro passato.
      * 
-     * @param[in] email La lista delle email.
+     * @param email La lista delle email.
      */
     public void setEmail(ArrayList<String> email) {
-       
-    }
-    
-    // Metodo per aggiungere una singola email (con limite massimo di 3)
-    public void addEmail(String email) {
-       
+        if (email != null) {
+            // Mantieni solo le prime 3 email
+            this.email.set(FXCollections.observableArrayList(email.subList(0, Math.min(email.size(), MAX_CONTACTS))));
+        } else {
+            this.email.set(FXCollections.observableArrayList());
+        }
     }
 
     /**
@@ -144,4 +165,40 @@ public class Contatto {
         return nome + "\\|" + cognome + "\\|" + numTel + "\\|" + email + "\\|";
       }
 
+    /** 
+    * @brief Questo metodo consente di accedere alla proprietà nome del contatto come un oggetto di tipo StringProperty
+    * @return La proprietà "nome" del contatto
+    *
+    */
+    public StringProperty nomeProperty() {
+        return nome;
+    }
+    /**
+     * @brief Questo metodo consente di accedere alla proprietà cognome del contatto come un oggetto di tipo StringProperty
+     * 
+     * @return La proprietà cognome del contatto
+     */
+    public StringProperty cognomeProperty() {
+        return cognome;
+    }
+    
+    /**
+     * @brief Questo metodo consente di accedere alla lista dei numero di telefono del contatto come un oggetto di tipo ListProperty<String> 
+     * 
+     * @return La proprietà lista dei numeri di telefono del contatto
+     */
+
+    // Proprietà per numeri di telefono ed email
+    public ListProperty<String> numTelProperty() {
+        return numTel;
+    }
+    /**
+     * @brief Questo metodo consente di accedere alla lista delle email del contatto come un oggeto di tipo ListProperty<String>
+     *  
+     * @return La proprietà lista delle email del contatto
+     */
+
+    public ListProperty<String> emailProperty() {
+        return email;
+    }
 }
