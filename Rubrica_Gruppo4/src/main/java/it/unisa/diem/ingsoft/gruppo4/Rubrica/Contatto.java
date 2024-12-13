@@ -161,9 +161,13 @@ public class Contatto {
      * 
      * @return Una stringa che rappresenta il contatto.
      */
-    public String toString() {
-        return nome + "\\|" + cognome + "\\|" + numTel + "\\|" + email + "\\|";
-      }
+    
+    @Override
+        public String toString() {
+        String numeriAsString = String.join(", ", numTel);
+        String emailsAsString = String.join(", ", email);
+        return nome.get() + "|" + cognome.get() + "|" + numeriAsString + "|" + emailsAsString;
+}
 
     /** 
     * @brief Questo metodo consente di accedere alla proprietà nome del contatto come un oggetto di tipo StringProperty
