@@ -1,6 +1,9 @@
 package it.unisa.diem.ingsoft.gruppo4.Rubrica;
 
 import java.util.List;
+import java.util.ArrayList;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  * @file Contatto.java
@@ -16,15 +19,16 @@ import java.util.List;
  */
 public class Contatto {
 
-    private String Nome;
-    private String Cognome;
-    private List<String> numTel;
-    private List<String> email;
+    private StringProperty nome;
+    private StringProperty cognome;
+    private ListProperty<String> numTel;
+    private ListProperty<String> email;
+    private final int MAX_CONTACTS = 3;  // Limite massimo di numeri e email
 
-    Contatto(String nome, String cognome, String numero, String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+        public Contatto() {
+            
+        }
+    
     /**
      * @brief Il metodo getNome() restituisce il nome del contatto.
      * 
@@ -34,7 +38,7 @@ public class Contatto {
      * @return Il nome del contatto.
      */
     public String getNome() {
-        throw new UnsupportedOperationException("Not supported yet.");
+       
     }
 
     /**
@@ -46,7 +50,7 @@ public class Contatto {
      * @return Il cognome del contatto.
      */
     public String getCognome() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     /**
@@ -57,8 +61,8 @@ public class Contatto {
      * 
      * @return La lista dei numeri di telefono.
      */
-    public List<String> getNumTel() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public ArrayList<String> getNumTel() {
+        
     }
 
     /**
@@ -69,8 +73,8 @@ public class Contatto {
      * 
      * @return La lista delle email.
      */
-    public List<String> getEmail() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public ArrayList<String> getEmail() {
+        
     }
 
     /**
@@ -82,7 +86,7 @@ public class Contatto {
      * @param[in] nome il nome del contatto.
      */
     public void setNome(String nome) {
-        this.Nome = nome;
+        
     }
 
     /**
@@ -94,7 +98,7 @@ public class Contatto {
      * @param[in] cognome Il cognome del contatto.
      */
     public void setCognome(String cognome) {
-        this.Cognome = cognome;
+        
     }
 
     /**
@@ -105,8 +109,13 @@ public class Contatto {
      * 
      * @param[in] numTel La lista dei numeri di telefono.
      */
-    public void setNumTel(List<String> numTel) {
-        this.numTel = numTel;
+    public void setNumTel(ArrayList<String> numTel) {
+      
+    }
+    
+       // Metodo per aggiungere un singolo numero di telefono (con limite massimo di 3)
+    public void addTelefono(String telefono) {
+        
     }
 
     /**
@@ -117,8 +126,13 @@ public class Contatto {
      * 
      * @param[in] email La lista delle email.
      */
-    public void setEmail(List<String> email) {
-        this.email = email;
+    public void setEmail(ArrayList<String> email) {
+       
+    }
+    
+    // Metodo per aggiungere una singola email (con limite massimo di 3)
+    public void addEmail(String email) {
+       
     }
 
     /**
@@ -127,6 +141,7 @@ public class Contatto {
      * @return Una stringa che rappresenta il contatto.
      */
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+        return nome + "\\|" + cognome + "\\|" + numTel + "\\|" + email + "\\|";
+      }
+
 }

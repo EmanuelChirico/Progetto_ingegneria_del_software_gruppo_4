@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>it.unisa</groupId>
     <artifactId>Rubrica_Gruppo4</artifactId>
@@ -26,47 +26,18 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>it.unisa.diem.ingsoft.gruppo4.view.App</mainClass>
+                    <mainClass>it.unisa.diem.ingsoft.gruppo4.view.InterfacciaUtente</mainClass>
                 </configuration>
-                <executions>
-                    <execution>
-                        <!-- Default configuration for running -->
-                        <!-- Usage: mvn clean javafx:run -->
-                        <id>default-cli</id>
-                    </execution>
-                    <execution>
-                        <!-- Configuration for manual attach debugging -->
-                        <!-- Usage: mvn clean javafx:run@debug -->
-                        <id>debug</id>
-                        <configuration>
-                            <options>
-                                <option>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=localhost:8000</option>
-                            </options>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <!-- Configuration for automatic IDE debugging -->
-                        <id>ide-debug</id>
-                        <configuration>
-                            <options>
-                                <option>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</option>
-                            </options>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <!-- Configuration for automatic IDE profiling -->
-                        <id>ide-profile</id>
-                        <configuration>
-                            <options>
-				<option>${profiler.jvmargs.arg1}</option>
-				<option>${profiler.jvmargs.arg2}</option>
-				<option>${profiler.jvmargs.arg3}</option>
-				<option>${profiler.jvmargs.arg4}</option>
-				<option>${profiler.jvmargs.arg5}</option>
-                            </options>
-                        </configuration>
-                    </execution>
-                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -90,4 +61,13 @@
             </dependencies>
         </profile>
     </profiles>
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <name>Rubrica_def</name>
 </project>

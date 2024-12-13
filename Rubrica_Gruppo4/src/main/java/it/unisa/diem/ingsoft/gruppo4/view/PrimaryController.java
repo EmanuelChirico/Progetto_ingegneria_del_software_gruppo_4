@@ -1,7 +1,9 @@
 package it.unisa.diem.ingsoft.gruppo4.view;
 
 import it.unisa.diem.ingsoft.gruppo4.Rubrica.Contatto; // Importa la classe Contatto
-import it.unisa.diem.ingsoft.gruppo4.Rubrica.GestioneFile; // Importa GestioneFile
+import it.unisa.diem.ingsoft.gruppo4.Rubrica.GestoreFile; // Importa GestioneFile
+import it.unisa.diem.ingsoft.gruppo4.Rubrica.Rubrica;
+import java.awt.event.KeyEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
@@ -13,7 +15,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class PrimaryController {
@@ -28,62 +35,59 @@ public class PrimaryController {
     private TableColumn<Contatto, String> colTelefono; // Colonna "Telefono"
     @FXML
     private TableColumn<Contatto, String> colEmail;    // Colonna "E-mail"
+    @FXML
+    private TextField searchField;
+    @FXML
+    private Button aggiungi;
 
-    private ObservableList<Contatto> contattiObservable = FXCollections.observableArrayList(); // Lista osservabile->DA VERIFICARE
-    private final GestioneFile gestioneFile = new GestioneFile(); // Instanza della classe GestioneFile
-    private final ArrayList<Contatto> rubrica = new ArrayList<>(); // Lista di contatti
+   
+    private final GestoreFile gestioneFile = new GestoreFile(); // Instanza della classe GestioneFile
+    
+    
+    private Rubrica contatti;
+
+public PrimaryController() {
+    
+}
     
      @FXML
     public void initialize() {
-        // Configura le colonne del TableView
-        colNome.setCellValueFactory(new PropertyValueFactory<>("Nome"));
-        colCognome.setCellValueFactory(new PropertyValueFactory<>("Cognome"));
-        colTelefono.setCellValueFactory(new PropertyValueFactory<>("numTel"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-
-        // Collega la lista osservabile al TableView
-        tableView.setItems(contattiObservable);
+       
     }
 
-    @FXML
-    private void handleAggiungiButton(ActionEvent event) {
-        try {
-            App.setRoot("secondary"); // Cambia scena a `secondary.fxml`
-        } catch (IOException e) {
-            e.printStackTrace(); // Stampa il problema in console
-        }
-    }
+   @FXML
+private void handleAggiungiButton(ActionEvent event) {
+   
+}
+   
 
     @FXML
     private void handleImportaButton(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Seleziona un file da importare");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("File di testo", "*.txt"));
-
-        // Mostra la finestra di dialogo
-        Stage stage = new Stage();
-        File selectedFile = fileChooser.showOpenDialog(stage);
-
-        if (selectedFile != null) {
-            gestioneFile.importaContatti(selectedFile, rubrica); // Usa GestioneFile per importare i contatti
-            tableView.getItems().clear(); // Svuota il TableView
-            tableView.getItems().addAll(rubrica); // Aggiungi i contatti importati al TableView
+        
         }
     }
 
     @FXML
     private void handleEsportaButton() {
-        // Mostra una finestra di dialogo "Salva con nome" per scegliere il file
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Esporta Rubrica");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("File di testo", "*.txt"));
-
-        // Ottieni il file selezionato dall'utente
-        File file = fileChooser.showSaveDialog(new Stage());
-        if (file != null) {
-            // Esporta i contatti nel file selezionato
-            gestioneFile.esportaContatti(file, rubrica);
-            System.out.println("Rubrica esportata con successo!");
+       
         }
     }
+    @FXML
+    private void handleModificaButton(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void handleEliminaButton(ActionEvent event) {
+      
+    }
+    
+    @FXML
+private void handleSearch(KeyEvent event) {
+   
+    }
+    
+
+
+
 }

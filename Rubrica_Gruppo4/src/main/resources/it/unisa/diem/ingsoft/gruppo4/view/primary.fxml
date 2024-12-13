@@ -8,16 +8,26 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.ingsoft.gruppo4.view.PrimaryController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.ingsoft.gruppo4.view.PrimaryController">
     <children>
         <HBox prefHeight="35.0" prefWidth="640.0">
             <children>
-                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Aggiungi" onAction="#handleAggiungiButton">
+                <Button fx:id="aggiungi" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Aggiungi" onAction="#handleAggiungiButton">
                     <padding>
                         <Insets left="5.0" right="5.0" />
                     </padding>
                     <HBox.margin>
                         <Insets left="5.0" right="5.0" />
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Modifica" onAction="#handleModificaButton">
+                    <HBox.margin>
+                        <Insets right="5.0" />
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Elimina" onAction="#handleEliminaButton">
+                    <HBox.margin>
+                        <Insets right="5.0" />
                     </HBox.margin>
                 </Button>
                 <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Importa" onAction="#handleImportaButton">
@@ -26,7 +36,7 @@
                     </HBox.margin>
                 </Button>
                 <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Esporta" onAction="#handleEsportaButton" />
-                <TextField prefHeight="25.0" prefWidth="170.0" promptText="Cerca contatto                    🔎">
+                <TextField fx:id="searchField" prefHeight="25.0" prefWidth="170.0" promptText="Cerca contatto                    🔎" >
                     <HBox.margin>
                         <Insets left="240.0" />
                     </HBox.margin>

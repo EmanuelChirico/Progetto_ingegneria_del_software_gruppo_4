@@ -13,13 +13,13 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="77.0" layoutY="10.0" prefHeight="25.0" prefWidth="202.0" />
+      <TextField fx:id="txtNome" layoutX="77.0" layoutY="10.0" prefHeight="25.0" prefWidth="202.0" />
       <Label layoutX="10.0" layoutY="59.0" prefHeight="25.0" prefWidth="73.0" text="Cognome">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="77.0" layoutY="59.0" prefHeight="25.0" prefWidth="202.0" />
+      <TextField fx:id="txtCognome" layoutX="77.0" layoutY="59.0" prefHeight="25.0" prefWidth="202.0" />
       <Label layoutX="10.0" layoutY="117.0" prefHeight="25.0" prefWidth="73.0" text="Telefono">
          <font>
             <Font size="14.0" />
@@ -30,13 +30,13 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="77.0" layoutY="181.0" prefHeight="25.0" prefWidth="202.0" promptText="3°numero" />
-      <TextField layoutX="77.0" layoutY="150.0" prefHeight="25.0" prefWidth="202.0" promptText="2° Numero" />
-      <TextField layoutX="77.0" layoutY="117.0" prefHeight="25.0" prefWidth="202.0" promptText="1° Numero" />
-      <TextField layoutX="77.0" layoutY="231.0" prefHeight="25.0" prefWidth="202.0" promptText="1° E-mail" />
-      <TextField layoutX="77.0" layoutY="294.0" prefHeight="25.0" prefWidth="202.0" promptText="3° E-mail" />
-      <TextField layoutX="77.0" layoutY="263.0" prefHeight="25.0" prefWidth="202.0" promptText="2° E-mail" />
-      <Button layoutX="90.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Conferma" />
-      <Button layoutX="178.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Annulla" onAction="#handleCancelButton" />
+      <TextField fx:id="txtTelefono3" layoutX="77.0" layoutY="181.0" prefHeight="25.0" prefWidth="202.0" promptText="3°numero" />
+      <TextField fx:id="txtTelefono2" layoutX="77.0" layoutY="150.0" prefHeight="25.0" prefWidth="202.0" promptText="2° Numero" />
+      <TextField fx:id="txtTelefono1" layoutX="77.0" layoutY="117.0" prefHeight="25.0" prefWidth="202.0" promptText="1° Numero" />
+      <TextField fx:id="txtEmail1" layoutX="77.0" layoutY="231.0" prefHeight="25.0" prefWidth="202.0" promptText="1° E-mail" />
+      <TextField fx:id="txtEmail3" layoutX="77.0" layoutY="294.0" prefHeight="25.0" prefWidth="202.0" promptText="3° E-mail" />
+      <TextField fx:id="txtEmail2" layoutX="77.0" layoutY="263.0" prefHeight="25.0" prefWidth="202.0" promptText="2° E-mail" />
+      <Button fx:id="conferma" layoutX="90.0" layoutY="355.0" mnemonicParsing="false" onAction="#handleConfermaButton" prefHeight="25.0" prefWidth="73.0" text="Conferma" />
+      <Button fx:id="annulla" layoutX="178.0" layoutY="355.0" mnemonicParsing="false" onAction="#handleAnnullaButton" prefHeight="25.0" prefWidth="73.0" text="Annulla" />
    </children>
 </AnchorPane>
