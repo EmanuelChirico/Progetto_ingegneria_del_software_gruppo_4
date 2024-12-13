@@ -111,7 +111,7 @@ public class GestoreFile {
             alert.showAndWait();
             return false;
         }
-        // Aggiungi i contatti alla rubrica solo se tutte le righe sono valide
+        // Aggiungi i contatti alla rubrica solamente se tutte le righe sono valide
         if (tutteRigheValide) {
             rubrica.svuotaRubrica();
             for (Contatto contatto : contattiDaAggiungere) {
