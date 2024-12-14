@@ -1,4 +1,8 @@
 /* Stile della Tabella */
+.root {
+    -fx-background-color:#f7fbff;
+}
+
 .table-view {
     -fx-background-color: transparent;
     -fx-border-color: #aad4f5;
@@ -40,3 +44,63 @@
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
+/* Stile campi di testo */
+/* Stile campi di testo */
+.text-field {
+    -fx-background-color: #f7fbff;
+    -fx-border-color: #aad4f5;
+    -fx-border-width: 2px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-padding: 6px; 
+    -fx-font-size: 12px; 
+    -fx-text-fill: #004080;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 6, 0.3, 0, 2);
+    -fx-pref-height: 28px; 
+    -fx-margin: 10px 0; /* Spazio aumentato tra i campi di testo */
+}
+
+.text-field:focused {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #64b5f6;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 8, 0.4, 0, 3);
+}
+
+.text-field:hover {
+    -fx-background-color: #e3f2fd;
+    -fx-border-color: #64b5f6;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 10, 0.4, 0, 3);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+/* Pulsanti Conferma e Annulla */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #42a5f5, #2196f3);
+    -fx-border-color: #1e88e5;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #ffffff; /* Assicura testo visibile */
+    -fx-font-size: 12px; /* Ridotta dimensione del font */
+    -fx-padding: 6px 12px; /* Ridotto padding */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 6, 0.3, 0, 2);
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s ease-in-out;
+    -fx-pref-width: 80px; /* Ridotta larghezza */
+    -fx-pref-height: 28px; /* Ridotta altezza */
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #2196f3, #1976d2);
+    -fx-border-color: #1565c0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 12, 0.4, 0, 3);
+}
+
+.button:pressed {
+    -fx-background-color: #1565c0;
+    -fx-border-color: #0d47a1;
+    -fx-text-fill: #e3f2fd;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0, 0);
+}
+
+
