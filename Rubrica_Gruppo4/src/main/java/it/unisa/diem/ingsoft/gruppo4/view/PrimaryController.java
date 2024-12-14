@@ -96,7 +96,7 @@ public class PrimaryController {
 
         tableView.setItems(rubrica.getContatti());
     
-        // Aggiungi un listener al TextField di ricerca in modo da filtrare la TableView
+        // Aggiunto un listener al TextField di ricerca in modo da filtrare la TableView
         ricerca.textProperty().addListener((observable, oldValue, newValue) -> {
             filtraContatti(newValue);
         });
