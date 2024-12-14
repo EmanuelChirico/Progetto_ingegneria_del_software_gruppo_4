@@ -1,6 +1,6 @@
 /* Stile della Tabella */
 .root {
-    -fx-background-color:#f7fbff;
+    -fx-background-color: #f7fbff;
 }
 
 .table-view {
@@ -9,7 +9,7 @@
     -fx-border-width: 2px;
     -fx-border-radius: 12px;
     -fx-background-radius: 12px;
-    -fx-padding: 10px;
+    -fx-padding: 11px;
 }
 
 .table-view .column-header {
@@ -45,7 +45,6 @@
     -fx-border-color: transparent;
 }
 /* Stile campi di testo */
-/* Stile campi di testo */
 .text-field {
     -fx-background-color: #f7fbff;
     -fx-border-color: #aad4f5;
@@ -57,7 +56,7 @@
     -fx-text-fill: #004080;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 6, 0.3, 0, 2);
     -fx-pref-height: 28px; 
-    -fx-margin: 10px 0; /* Spazio aumentato tra i campi di testo */
+    -fx-margin: 11px 0; /* Spazio tra i campi di testo */
 }
 
 .text-field:focused {
@@ -74,20 +73,19 @@
     -fx-transition: all 0.3s ease-in-out;
 }
 
-/* Pulsanti Conferma e Annulla */
 .button {
     -fx-background-color: linear-gradient(to bottom, #42a5f5, #2196f3);
     -fx-border-color: #1e88e5;
     -fx-border-radius: 8px;
     -fx-background-radius: 8px;
-    -fx-text-fill: #ffffff; /* Assicura testo visibile */
-    -fx-font-size: 12px; /* Ridotta dimensione del font */
-    -fx-padding: 6px 12px; /* Ridotto padding */
+    -fx-text-fill: #ffffff; 
+    -fx-font-size: 12px; 
+    -fx-padding: 6px 12px; 
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 6, 0.3, 0, 2);
     -fx-cursor: hand;
     -fx-transition: all 0.3s ease-in-out;
-    -fx-pref-width: 80px; /* Ridotta larghezza */
-    -fx-pref-height: 28px; /* Ridotta altezza */
+    -fx-pref-width: 80px; 
+    -fx-pref-height: 28px; 
 }
 
 .button:hover {
