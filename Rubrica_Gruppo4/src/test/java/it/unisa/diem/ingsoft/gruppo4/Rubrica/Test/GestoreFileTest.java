@@ -28,7 +28,7 @@ public class GestoreFileTest {
     @BeforeEach
     public void setUp() {
         gestoreFile = new GestoreFile();
-        rubrica = new Rubrica(); // Presupponendo l'esistenza di una classe Rubrica che implementa OperazioniRubrica.
+        rubrica = new Rubrica(); 
     }
 
     @AfterEach
